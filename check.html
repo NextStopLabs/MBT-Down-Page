@@ -24,11 +24,11 @@
                     window.location.href = url;
                 } else {
                     // If the main site is not up, show an error message
-                    document.getElementById('status').innerText = 'The main site is down. Please try again later.';
+                    window.location.href = 'down.html';
                 }
             } catch (error) {
                 // On error (e.g., timeout), show an error message
-                document.getElementById('status').innerText = 'Error: The main site is not reachable. Please try again later.';
+                window.location.href = 'down.html';
             }
         }
 
