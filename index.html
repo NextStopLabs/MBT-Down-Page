@@ -1,7 +1,250 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
-</html>
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2623095708353843" crossorigin="anonymous"></script>
+</head>
+<style>
+    :root {
+        --text-color-TEST: #333;
+        <?php
+        if (isset($_SESSION['darkmode'])) {
+            if ($_SESSION['darkmode'] == "0") {
+                echo "--background-color: var(--white);";
+                echo "--text-color: #222;";
+            } else {
+                echo "--background-color: #14191f;";
+                echo "--text-color: white;";
+            }
+        } else {
+            echo "--background-color: var(--white);";
+            echo "--text-color: #222;";
+        }
+        ?>
+    }
+
+    body {
+        background: var(--background-color);
+        color: var(--text-color);
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI Variable, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+
+    }
+
+    @media (min-width: 48em) {
+        .dropdown {
+            display: block;
+            /* or flex, depending on your layout */
+            background-color: #ffff9e;
+            width: 145px;
+            padding: 0px 0px 10px 30px;
+            position: absolute;
+            right: 0px;
+            text-align: left;
+            font-weight: unset;
+            z-index: 1;
+        }
+    }
+
+
+    @media (max-width: 480px) {
+        .darkmode {
+            position: absolute;
+            top: 120px;
+            right: 10px;
+            z-index: 100000 !important;
+        }
+    }
+
+    /* @media (max-width: 480px) {
+        label {
+            color: var(--text-color);
+        }
+    } */
+
+    .dropdown1 {
+        display: none;
+        background-color: var(--brand-color);
+        width: 145px;
+        padding: 0px 15px 10px 15px;
+        position: absolute;
+        right: 16px;
+        text-align: left;
+        font-weight: unset;
+        z-index: 1;
+    }
+
+    .main-header {
+        position: relative;
+        /* Makes the dropdown position relative to the <main> */
+    }
+
+    .notification0 {
+        background: red;
+        color: white;
+        width: 15px;
+        text-align: center;
+        height: 10px;
+        padding-bottom: 6px;
+        border-radius: 50%;
+        display: inline-block;
+        font-size: 0.7em;
+        position: absolute;
+        left: 10px;
+        top: 12px;
+    }
+
+    .notification0 {
+        background: red;
+        color: white;
+        width: 15px;
+        text-align: center;
+        height: 10px;
+        padding-bottom: 6px;
+        border-radius: 50%;
+        display: inline-block;
+        font-size: 0.7em;
+        position: absolute;
+        left: 10px;
+        top: 33px;
+    }
+
+    .notification1 {
+        background: red;
+        color: white;
+        width: 15px;
+        text-align: center;
+        height: 10px;
+        padding-bottom: 6px;
+        border-radius: 50%;
+        display: inline-block;
+        font-size: 0.7em;
+        position: absolute;
+        left: 10px;
+        top: 57px;
+    }
+
+    .notification2 {
+        background: red;
+        color: white;
+        width: 15px;
+        text-align: center;
+        height: 10px;
+        padding-bottom: 6px;
+        border-radius: 50%;
+        display: inline-block;
+        font-size: 0.7em;
+        position: absolute;
+        left: 10px;
+        top: 82px;
+    }
+
+    .site-header {
+        background: var(--brand-color);
+        position: relative;
+        overflow: hidden;
+        <?php
+        $currentDate = date("m-d");
+        if ($currentDate == "03-31") {
+            echo '
+        background-color: white;
+        background-image: linear-gradient(0deg, #5bcffaff 20%, transparent 20.05%),linear-gradient(180deg, #5bcffaff 20%, transparent 20.05%),linear-gradient(0deg, #f5abb9ff 40%, transparent 40.05%),linear-gradient(-180deg, #f5abb9ff 40%, transparent 40.05%);
+        ';
+        } elseif ($currentDate == "04-18") {
+            echo '
+        background-color: white;
+        background-image: linear-gradient(180deg, #fff430ff 25%, transparent 25.05%),linear-gradient(0deg, #343434ff 25%, transparent 25.05%),linear-gradient(0deg, #9e5ed1ff 50%, transparent 50.05%);
+        ';
+        } elseif ($currentDate == "04-26") {
+            echo '
+        background-color: white;
+        background-image: linear-gradient(-180deg, #d53308ff 20%, transparent 20.05%),linear-gradient(180deg, #fe9955ff 40%, transparent 40.05%),linear-gradient(0deg, #a70866ff 20%, transparent 20.05%),linear-gradient(0deg, #d366a6ff 40%, transparent 40.05%);
+        ';
+        } elseif ($currentDate >= "06-01" && $currentDate <= "06-30") {
+            echo '
+        background-color: white;
+        background-image: linear-gradient(0deg, #750685ff 16%, transparent 16.05%),linear-gradient(0deg, #004dfeff 34%, transparent 34.05%),linear-gradient(0deg, #008026ff 50%, transparent 50.05%),linear-gradient(0deg, #feed00ff 68%, transparent 68.05%),linear-gradient(0deg, #ff8b01ff 84%, transparent 84.05%),linear-gradient(0deg, #e50203ff 100%, transparent 100.05%);
+        ';
+        } else {
+            //echo '
+            //background-color: white;
+            //background-image: linear-gradient(-360deg, #a8226bff 20%, transparent 20.05%),linear-gradient(-360deg, #ed1b4cff 40%, transparent 40.05%),linear-gradient(-360deg, #f26a44ff 60%, transparent 60.05%),linear-gradient(-360deg, #f6db68ff 80%, transparent 80.05%),linear-gradient(-360deg, #2e9699ff 100%, transparent 100.05%);
+            //';
+        };
+        ?>
+    }
+
+    #countdown-contain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    #countdown-container {
+        display: none;
+        top: 50px;
+        z-index: 100;
+        font-size: 2em;
+        position: fixed;
+        background: var(--brand-color);
+        padding: 15px 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 300px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #minimize-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    width: 50px;
+    color: var(--text-color);
+    }
+
+    #countdown {
+        margin-top: 10px;
+    }
+    #maximis-container{
+        display: none;
+    }
+    #maximis-button {
+        position: absolute;
+        background: var(--brand-color);
+        border: 0;
+        width: 50px;
+        height: 20px;
+        border-radius: 0 0 10px 0;
+        color: var(--text-color)
+    }
+    #countdown-container p {
+        margin-top: -15px;
+        margin-bottom: -75px;
+    }
+    #countdown-container a {
+        font-size: 0.5em;
+        color: #54c;
+    }
+</style>
+<header class="site-header">
+    <link type="image/x-icon" rel="shortcut icon"
+        href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAABnlBMVEX//57R0YG4uHK5uXPKyn3n54/+/p3AwHfe3ori4oyaml92dklgYDt7e0ydnWHx8ZVZWTcAAAAsLBunp2cbGxEBAQGHh1SUlFz395lxcUYGBgQQEAqNjVeoqGhyckdRUTJmZj8wMB79/Z3S0oICAgEREQuVlVy1tXAXFw7Dw3kVFQ3a2oeSklo2NiHl5Y5dXTq2tnGysm66unNLSy7m5o9ubkT4+Jru7pP6+psDAwKTk1sMDAepqWmcnGGAgE8mJhgODgmtrWvd3YkHBwSbm2D29pgxMR7g4IuCglETEwyBgVD19Zg3NyLOzoAKCgYaGhDFxXqqqmmZmV9TUzPs7JKJiVUhIRQNDQjY2IZpaUFjYz27u3Q7OyVlZT8vLx37+5xVVTUtLRzU1IMpKRmjo2UZGQ/ExHkdHRKlpWY5OSNSUjNnZ0A0NCBBQSh8fE2Dg1Hw8JVaWjiOjlhsbEMJCQYnJxiurmxPTzF0dEgrKxsFBQPLy36mpmdMTC8YGA/j440jIxZHRyzGxnu8vHTV1YTz85fr65K+vnbc3Ij5+Zo4ZAlSAAABmElEQVR4AWIYUmAUjAJGJhBgZgGQTY5tDgRBGOwzY9vO2bZt27b9z++d3Whn5kPX1vZTcYqKJS3BNWMpbpZJF+UVlSq1JhtodamjNzA16nQmRjPuWIisNru0dDiFAMclBm7FMhN4vD4T4PDzQSCo04XCEQ+20dwgRlQWBxN8UI6ZhFWB1cqAasBaPnBj1sFsYD0XNICNfNCEqYI1t7S0tCqDxjZ8TsQH7ZgdncVw5ceq6uru0el6+4Sgf0D6wAeHuEA6wyMkBDQq78bGJ8TANDklBtQ1LW9nZnOD0bn5BWC6XwxocWlZKlZWuU9pDVwXA5zijU1WbHFBDNzmg53W1laW7ML2uGAfnCE6AFqh4+AhHel0QQgdw0644BQ8IzoHRqAX4BRdYi7C8sErRbDoMoJrRNfADdHtDB57iO5g9yQ/zENOMLMcxNQ9lhEd48q0636CeoiedbCX1zfg/UP4P/R+Mlel1bgI+8ps70kZfF81/Ui+k/xlbt8qlS3OLPj3vwA8uVyJo6m5pRXObatu7+hkGGAwCkYBAJrRT1rsdMg4AAAAAElFTkSuQmCC">
+</header>
+</main>
+<script>
+    document.getElementById("toggleMenu").addEventListener("click", function() {
+        var dropdown1 = document.getElementById("dropdown1");
+        if (dropdown1.style.display === "block") {
+            dropdown1.style.display = "none"; // Hide the dropdown
+        } else {
+            dropdown1.style.display = "block"; // Show the dropdown
+        }
+    });
+</script>
+
+</a>
