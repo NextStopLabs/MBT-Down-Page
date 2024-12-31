@@ -1,9 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checking Site Status</title>
+    <style>
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            /* Safari */
+            animation: spin 1.5s linear infinite;
+            width: 25vw;
+            height: 25vw;
+            margin-left: 35vw;
+            margin-top: 25vh;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
     <script>
         // Function to check if the main site is up
         async function checkMainSite(url) {
@@ -24,11 +62,11 @@
                     window.location.href = url;
                 } else {
                     // If the main site is not up, show an error message
-                    window.location.href = 'down.html?url='+url;
+                    window.location.href = 'down.html?url=' + url;
                 }
             } catch (error) {
                 // On error (e.g., timeout), show an error message
-                window.location.href = 'down.html?url='+url;
+                window.location.href = 'down.html?url=' + url;
             }
         }
 
@@ -41,7 +79,7 @@
         }
 
         // Call the check function when the page loads
-        window.onload = function() {
+        window.onload = function () {
             // Replace the current page in history with a new one
             history.replaceState(null, null, window.location.href);
 
@@ -55,6 +93,9 @@
         }
     </script>
 </head>
+
 <body>
+    <div class="loader"></div>
 </body>
+
 </html>
