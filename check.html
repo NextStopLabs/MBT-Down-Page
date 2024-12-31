@@ -32,6 +32,14 @@
             }
         }
 
+        // Function to preload the target page
+        function preloadTargetPage(url) {
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none'; // Hide the iframe
+            iframe.src = url; // Set the target URL for preloading
+            document.body.appendChild(iframe); // Append iframe to the body to start loading
+        }
+
         // Call the check function when the page loads
         window.onload = function() {
             // Replace the current page in history with a new one
@@ -39,6 +47,9 @@
 
             const url = new URLSearchParams(window.location.search).get('url');
             if (url) {
+                // Start preloading the target page
+                preloadTargetPage(url);
+                // Perform the check for the main site
                 checkMainSite(url);
             }
         }
