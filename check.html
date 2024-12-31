@@ -34,6 +34,9 @@
 
         // Call the check function when the page loads
         window.onload = function() {
+            // Replace the current page in history with a new one
+            history.replaceState(null, null, window.location.href);
+
             const url = new URLSearchParams(window.location.search).get('url');
             if (url) {
                 checkMainSite(url);
