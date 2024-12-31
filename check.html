@@ -5,43 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checking Site Status</title>
-    <style>
-        .loader {
-            border: 16px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 16px solid #3498db;
-            width: 120px;
-            height: 120px;
-            -webkit-animation: spin 2s linear infinite;
-            /* Safari */
-            animation: spin 1.5s linear infinite;
-            width: 25vw;
-            height: 25vw;
-            margin-left: 35vw;
-            margin-top: 25vh;
-        }
-
-        /* Safari */
-        @-webkit-keyframes spin {
-            0% {
-                -webkit-transform: rotate(0deg);
-            }
-
-            100% {
-                -webkit-transform: rotate(360deg);
-            }
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
     <script>
         // Function to check if the main site is up
         async function checkMainSite(url) {
@@ -92,10 +55,76 @@
             }
         }
     </script>
+    <meta name=twitter:card content=summary>
+    <meta name=twitter:site content=@bustimes_org>
+    <meta name=referrer content=no-referrer>
+    <link rel=icon type=image/png
+        href=data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAABnlBMVEX//57R0YG4uHK5uXPKyn3n54/+/p3AwHfe3ori4oyaml92dklgYDt7e0ydnWHx8ZVZWTcAAAAsLBunp2cbGxEBAQGHh1SUlFz395lxcUYGBgQQEAqNjVeoqGhyckdRUTJmZj8wMB79/Z3S0oICAgEREQuVlVy1tXAXFw7Dw3kVFQ3a2oeSklo2NiHl5Y5dXTq2tnGysm66unNLSy7m5o9ubkT4+Jru7pP6+psDAwKTk1sMDAepqWmcnGGAgE8mJhgODgmtrWvd3YkHBwSbm2D29pgxMR7g4IuCglETEwyBgVD19Zg3NyLOzoAKCgYaGhDFxXqqqmmZmV9TUzPs7JKJiVUhIRQNDQjY2IZpaUFjYz27u3Q7OyVlZT8vLx37+5xVVTUtLRzU1IMpKRmjo2UZGQ/ExHkdHRKlpWY5OSNSUjNnZ0A0NCBBQSh8fE2Dg1Hw8JVaWjiOjlhsbEMJCQYnJxiurmxPTzF0dEgrKxsFBQPLy36mpmdMTC8YGA/j440jIxZHRyzGxnu8vHTV1YTz85fr65K+vnbc3Ij5+Zo4ZAlSAAABmElEQVR4AWIYUmAUjAJGJhBgZgGQTY5tDgRBGOwzY9vO2bZt27b9z++d3Whn5kPX1vZTcYqKJS3BNWMpbpZJF+UVlSq1JhtodamjNzA16nQmRjPuWIisNru0dDiFAMclBm7FMhN4vD4T4PDzQSCo04XCEQ+20dwgRlQWBxN8UI6ZhFWB1cqAasBaPnBj1sFsYD0XNICNfNCEqYI1t7S0tCqDxjZ8TsQH7ZgdncVw5ceq6uru0el6+4Sgf0D6wAeHuEA6wyMkBDQq78bGJ8TANDklBtQ1LW9nZnOD0bn5BWC6XwxocWlZKlZWuU9pDVwXA5zijU1WbHFBDNzmg53W1laW7ML2uGAfnCE6AFqh4+AhHel0QQgdw0644BQ8IzoHRqAX4BRdYi7C8sErRbDoMoJrRNfADdHtDB57iO5g9yQ/zENOMLMcxNQ9lhEd48q0636CeoiedbCX1zfg/UP4P/R+Mlel1bgI+8ps70kZfF81/Ui+k/xlbt8qlS3OLPj3vwA8uVyJo6m5pRXObatu7+hkGGAwCkYBAJrRT1rsdMg4AAAAAElFTkSuQmCC>
+    <style>:root{--brand-color:#ffff9e;--brand-color-darker:#de8;--brand-color-darker-darker:#cd7;--border-color:var(--brand-color-darker);--border-color-darker:var(--brand-color-darker-darker);--black:#000;--white:#fff;--red:red;--background-color:var(--white);--text-color:#222;--link-color:#54c;--active-link-color:var(--black);--summary-marker-color:var(--border-color);--lightningcss-light:initial;--lightningcss-dark: ;--lightningcss-light:initial;--lightningcss-dark: ;color-scheme:light}body{background:var(--background-color);color:var(--text-color);margin:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI Variable,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5}.skip{text-align:center;height:0;display:block;overflow:hidden}.skip:focus{height:auto}header,main,footer{display:block}main{margin:0 auto;padding:0 1em}a{color:var(--link-color);text-decoration:none}a:hover,a:focus{text-decoration-skip-ink:auto;text-decoration:underline}a:active{background-color:var(--brand-color);color:var(--active-link-color)}label{cursor:pointer}.site-header{background:var(--brand-color);position:relative;overflow:hidden}.site-header a{color:var(--header-text-color);padding:.66667em;line-height:1;display:inline-block}.site-header a:hover{background-color:var(--brand-color-darker);text-decoration:none}.site-header .site-name{font-size:1.5em}.site-header div{margin:0 auto}.site-header div .site-name{position:absolute}.site-header ul{float:right;margin:0}.site-header ul li{display:inline}.site-header ul a{padding:1em 1em 1em .5em;line-height:1.5em}.site-header .search{float:right}.site-header .search label{padding:1em 1em 1em 0;line-height:1.5;display:block}.site-header .search label input{z-index:1;border-radius:0;margin:0;position:absolute;top:-3em}.site-header .search label input:focus{border-width:.75em 1em;width:100%;top:0;left:0}.site-header .search label+input{display:none}.site-header ul+.search label{padding-right:.5em}.search p{display:flex}.search input[type=search]{flex-grow:1;margin-right:.5em}h2{margin:.5em 0;line-height:1.2em}h2{margin-top:1em;font-size:1.25em}.button,input[type=submit]{-webkit-appearance:none;appearance:none;background:var(--brand-color);border:0;border-bottom:.0625em solid var(--brand-color-darker);color:inherit;font:inherit;border-radius:.5em;margin-bottom:.0625em;padding:.25em .5em;display:inline-block;position:relative;top:.0625em}.button:hover,input[type=submit]:hover{border-bottom-width:.125em;margin-bottom:0;text-decoration:none;top:0}.button:focus,.button:active,input[type=submit]:focus,input[type=submit]:active{background-color:var(--brand-color-darker);border-bottom:0;margin-bottom:.125em;top:.0625em}input[type=search]{-webkit-appearance:none;appearance:none;background:var(--background-color);border:1px solid var(--border-color);box-sizing:border-box;color:inherit;font:inherit;border-radius:.5em;outline:0;padding:.25em .5em}input[type=text]:focus,input[type=url]:focus,input[type=number]:focus,input[type=email]:focus,input[type=password]:focus,input[type=search]:focus,input[type=date]:focus,input[type=time]:focus,textarea:focus{border-color:var(--border-color-darker)}::-webkit-datetime-edit{padding:0}::-webkit-calendar-picker-indicator{margin-left:0}input[type=search]::-webkit-search-decoration{-webkit-appearance:none}ul{list-style:none}ul{margin:1em 0;padding:0}main li{break-inside:avoid}main li>a{text-overflow:ellipsis;white-space:nowrap;padding:.125em 0;display:block;overflow:hidden}@media (min-height:480px){}#content{margin-bottom:1.5em}footer li,footer li a{display:inline}.horizontal li:before,footer li:before{color:var(--border-color-darker);content:"  • ";font-weight:700}.horizontal li:first-child:before,footer li:first-child:before{display:none}.regions li{padding:.125em 0}.regions a{margin:-.125em 0}.regions ul{margin:.25em 0 .25em 1em}footer{clear:both;text-align:center;margin-top:1.5em;margin-bottom:100px}footer ul{border-top:1px solid var(--brand-color-darker);clear:both;white-space:nowrap;margin:0;padding:1em;font-size:.75em;overflow:hidden}footer ul a{padding:1.2em .25em}@media (min-width:30em){.site-header ul a{padding-left:1em}.site-header .search{position:relative;top:.7em}.site-header .search label{float:left;width:8em;padding:0;position:relative}.site-header .search input[type=search]{border:1px solid var(--brand-color-darker);border-top-left-radius:.5em;border-bottom-left-radius:.5em;width:100%;top:0;left:0}.site-header .search input[type=search]:focus{border-width:1px}.site-header .search input[type=submit]{background:var(--brand-color-darker);border:1px solid var(--brand-color-darker);float:right;border-top-left-radius:0;border-bottom-left-radius:0;margin:0;display:block;top:0}.site-header ul+.search{padding-right:.5em}.long{column-count:2}}@media (min-width:48em){header .search label{width:10em}.narrow header div{width:47.5em}.narrow main{width:45.5em}.panes{justify-content:space-between;margin:-1em 0;display:flex}}@media (min-width:62.5em){.site-header div{padding:0 1em}main{padding:0 2em}.long{column-count:3}}@media (min-width:970px){}@media (min-width:1200px){}</style>
+    <style>
+        .loading {
+          font-size: 34px;
+          font-weight: lighter;
+          color: #333;
+          text-align: center;
+          margin-top: 20vh;
+        }
+    
+        .dots {
+          display: inline-block;
+        }
+    
+        .dots span {
+          display: inline-block;
+          width: 5px;
+          height: 5px;
+          margin: 0 3px;
+          background-color: #333;
+          border-radius: 50%;
+          animation: blink 1.4s infinite ease-in-out;
+        }
+    
+        .dots span:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+    
+        .dots span:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+    
+        @keyframes blink {
+          0%, 80%, 100% {
+            transform: scale(0);
+          }
+          40% {
+            transform: scale(1);
+          }
+        }
+      </style>
 </head>
 
-<body>
-    <div class="loader"></div>
+<body class=narrow>
+    <header class=site-header style="height: 55px;">
+        <div>
+            <form method="GET" action="https://www.mybustimes.cc/BusTimes/Search.php" class="search">
+                <label style="color: var(--text-color)">
+                    Search
+                    <input name="q" placeholder="Search" type="search" value="" required>
+                </label>
+                <input style="color: var(--text-color)" type="submit" value="Search">
+            </form>
+            <a href=https://www.mybustimes.cc/ class=site-name>MyBusTimes</a>
+        </div>
+    </header>
+    <main>
+        <div class="loading">
+            Loading<span class="dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+    </main>
 </body>
 
 </html>

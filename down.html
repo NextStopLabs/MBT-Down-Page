@@ -186,24 +186,26 @@
   .sf-hidden {
     display: none !important
   }
-  .button, input[type="submit"] {
-  -webkit-appearance: none;
-  appearance: none;
-  background: var(--brand-color);
-  border: 0;
+
+  .button,
+  input[type="submit"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--brand-color);
+    border: 0;
     border-bottom-width: 0px;
     border-bottom-style: none;
     border-bottom-color: currentcolor;
-  border-bottom: .0625em solid var(--brand-color-darker);
-  color: inherit;
-  font: inherit;
-  border-radius: .5em;
-  margin-bottom: .0625em;
-  padding: .25em .5em;
-  display: inline-block;
-  position: relative;
-  top: .0625em;
-}
+    border-bottom: .0625em solid var(--brand-color-darker);
+    color: inherit;
+    font: inherit;
+    border-radius: .5em;
+    margin-bottom: .0625em;
+    padding: .25em .5em;
+    display: inline-block;
+    position: relative;
+    top: .0625em;
+  }
 </style>
 <meta http-equiv=content-security-policy
   content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;">
@@ -227,8 +229,8 @@
       <button class='button' onclick="goBack()">Try Again</button>
       <script>
         function goBack() {
-            window.history.back();
+          window.history.back();
         }
-    </script>
+      </script>
     </div>
   </main>
