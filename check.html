@@ -39,6 +39,7 @@
     // Call the functions when the page loads
     window.onload = function () {
         const url = new URLSearchParams(window.location.search).get('url');
+        redirectToPage(url);
         if (url) {
             // Redirect to the target page immediately
             redirectToPage(url);
