@@ -45,10 +45,11 @@
     // Call the functions when the page loads
     window.onload = function () {
         const url = new URLSearchParams(window.location.search).get('url');
-        if (url) {
-            redirectToPage(url);
-            checkMainSite(url);
-        }
+        redirectToPage(url);
+        //if (url) {
+        //    redirectToPage(url);
+        //    checkMainSite(url);
+        //}
     };
   </script>
 
