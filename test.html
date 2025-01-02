@@ -3,26 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check Site Status</title>
+    <title>Site Status</title>
 </head>
 <body>
-    <h1>Site Status</h1>
+    <h1>Check Site Status</h1>
     <p id="status">Checking...</p>
 
     <script>
-        // Update the URL to point to your server
-        const apiUrl = 'http://localhost:3000/check-status';
+        // Fetch data from the Netlify function
+        async function checkStatus() {
+            const statusElement = document.getElementById('status');
+            try {
+                const response = await fetch('https://mybustimes-down.netlify.app/.netlify/functions/check-status');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                // Update the status text with the response data
+                statusElement.textContent = `Site is up! Response time: ${data.response_time}ms`;
+            } catch (error) {
+                statusElement.textContent = `Failed to check status: ${error.message}`;
+            }
+        }
 
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('status').textContent = 'Site is up!';
-                console.log(data);
-            })
-            .catch(error => {
-                document.getElementById('status').textContent = 'There was an error checking the site.';
-                console.error('Error:', error);
-            });
+        // Call the function to check the status
+        checkStatus();
     </script>
 </body>
 </html>
