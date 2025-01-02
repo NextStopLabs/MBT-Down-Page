@@ -1,48 +1,28 @@
-<style>
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background-color: white;
-        padding: 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-        color: #333;
-    }
-    p {
-        color: #555;
-        font-size: 1.1em;
-    }
-    a {
-        color: #007BFF;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-    .highlight {
-        font-weight: bold;
-        color: #333;
-    }
-    .note {
-        background-color: #fff3cd;
-        color: #856404;
-        padding: 10px;
-        border-radius: 5px;
-        margin-top: 20px;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Site Status</title>
+</head>
+<body>
+    <h1>Site Status</h1>
+    <p id="status">Checking...</p>
 
-<div class="container">
-    <h2>Important Announcement – January 1, 2025</h2>
-<p>Due to current server performance issues and slow internet speeds, we have had to temporarily disable some features on the site.</p>
+    <script>
+        // Update the URL to point to your server
+        const apiUrl = 'http://localhost:3000/check-status';
 
-<h2>What this means for you:</h2>
-<p>You may experience limited functionality on certain parts of the website, including reduced access to advanced features and slower loading times for some pages.</p>
-<p>We are actively working to resolve these issues as quickly as possible and appreciate your patience during this time.</p>
-<p>In the meantime, basic site functionality will remain available, ensuring you can continue to access essential services.</p>
-
-<div class="note">
-    <strong>Important Notice:</strong> Updates regarding this situation will be provided on <a href="https://discord.gg/JTdRhJUYGM">Discord</a>. Please check back regularly for the latest information.
-</div>
-</div>
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('status').textContent = 'Site is up!';
+                console.log(data);
+            })
+            .catch(error => {
+                document.getElementById('status').textContent = 'There was an error checking the site.';
+                console.error('Error:', error);
+            });
+    </script>
+</body>
+</html>
