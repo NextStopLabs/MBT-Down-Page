@@ -1,0 +1,24 @@
+{
+  "name": "mbt-down-page",
+  "version": "1.0.0",
+  "description": "The down page for my bustimes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kai-codin/MBT-Down-Page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Kai-codin/MBT-Down-Page/issues"
+  },
+  "homepage": "https://github.com/Kai-codin/MBT-Down-Page#readme",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
