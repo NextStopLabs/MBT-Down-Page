@@ -7,45 +7,45 @@
   <title>Checking Site Status</title>
   <script>
     // Function to check if the main site is up using the BetterUptime API
-    async function checkMainSite(url) {
-        const apiToken = 'TchFg2LBzkmeZyDNtFM9nHSY'; // Your BetterUptime API token
-        const monitorId = '2887348'; // Replace with your monitor's ID from BetterUptime
-
-        try {
-            const response = await fetch(`https://api.betteruptime.com/v1/monitor/${monitorId}`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${apiToken}`,
-                    'Content-Type': 'application/json'
-                }
-            });
-
-            const data = await response.json();
-
-            if (response.ok && data.status === 'up') {
-                // If the site is up, continue as normal
-                console.log('The site is up');
-            } else {
-                // If the site is down, redirect to the down page
-                window.location.href = 'down.html?url=' + encodeURIComponent(url);
-            }
-        } catch (error) {
-            // On error (e.g., network failure), redirect to the down page
-            console.error('Error checking site status:', error);
-            window.location.href = 'down.html?url=' + encodeURIComponent(url);
-        }
-    }
+    //async function checkMainSite(url) {
+    //    const apiToken = 'TchFg2LBzkmeZyDNtFM9nHSY'; // Your BetterUptime API token
+    //    const monitorId = '2887348'; // Replace with your monitor's ID from BetterUptime
+//
+    //    try {
+    //        const response = await fetch(`https://api.betteruptime.com/v1/monitor/${monitorId}`, {
+    //            method: 'GET',
+    //            headers: {
+    //                'Authorization': `Bearer ${apiToken}`,
+    //                'Content-Type': 'application/json'
+    //            }
+    //        });
+//
+    //        const data = await response.json();
+//
+    //        if (response.ok && data.status === 'up') {
+    //            // If the site is up, continue as normal
+    //            console.log('The site is up');
+    //        } else {
+    //            // If the site is down, redirect to the down page
+    //            window.location.href = 'down.html?url=' + encodeURIComponent(url);
+    //        }
+    //    } catch (error) {
+    //        // On error (e.g., network failure), redirect to the down page
+    //        console.error('Error checking site status:', error);
+    //        window.location.href = 'down.html?url=' + encodeURIComponent(url);
+    //    }
+    //}
 
     // Function to redirect the user immediately
-    function redirectToPage(url) {
-        // Start navigating to the target page
-        window.location.href = url;
-    }
+    //function redirectToPage(url) {
+    //    // Start navigating to the target page
+    //    window.location.href = url;
+    //}
 
     // Call the functions when the page loads
     window.onload = function () {
         const url = new URLSearchParams(window.location.search).get('url');
-        redirectToPage(url);
+        window.location.href = url;
         //if (url) {
         //    redirectToPage(url);
         //    checkMainSite(url);
