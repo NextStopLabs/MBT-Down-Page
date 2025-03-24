@@ -8,28 +8,41 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f8f9fa;
+            background: linear-gradient(121deg, #8cb9d5 17%, transparent 17.05%),
+                        linear-gradient(-37deg, #c7ddeb 20%, transparent 20.05%),
+                        linear-gradient(23deg, #aecee1 46%, transparent 46.05%),
+                        linear-gradient(-187deg, #367296 49%, transparent 49.05%),
+                        linear-gradient(0deg, #5398c1 100%, transparent 100.05%);
             color: #333;
-            padding: 50px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+			overflow: hidden;
+			margin: 0px;
         }
-        .container {
+		.container {
             max-width: 600px;
             margin: auto;
+            margin-top: 20vh;
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            color: #d9534f;
+            color: #0078a0;
+            font-size: 26px;
         }
         p {
-            font-size: 18px;
-            margin: 20px 0;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+            margin: 15px 0;
         }
         .loader {
             border: 5px solid #f3f3f3;
-            border-top: 5px solid #d9534f;
+            border-top: 5px solid #0078a0;
             border-radius: 50%;
             width: 50px;
             height: 50px;
@@ -40,14 +53,32 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            text-decoration: none;
+            color: #0078a0;
+            font-weight: bold;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .links a:hover {
+            color: #005670;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>We'll Be Right Back!</h1>
-        <p>MyBusTimes is currently undergoing maintenance. We are working on resolving slowdowns and random downtime issues. This process may take a couple of hours.</p>
+        <h1>🚧 We're Improving MyBusTimes 🚧</h1>
         <div class="loader"></div>
-        <p>Thank you for your patience and for using MyBusTimes!</p>
+        <p>We're currently performing essential maintenance to enhance our system's performance and reliability. Our team is actively working on resolving slowdowns and unexpected downtime.</p>
+        <p>We anticipate completing the maintenance within the next few hours. Thank you for your patience and support!</p>
+        <div class="links">
+            <p>Stay updated:</p>
+            <a href="https://status.mybustimes.cc">📢 Status Page</a> | 
+            <a href="https://discord.gg/mybustimes">💬 Join Our Discord</a>
+        </div>
     </div>
 </body>
 </html>
