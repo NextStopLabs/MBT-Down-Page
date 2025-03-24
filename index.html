@@ -3,39 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Up?</title>
-    <script>
-        async function pingSite() {
-            try {
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 15000); // 5-second timeout
-
-                const response = await fetch('https://www.mybustimes.cc', {
-                    method: 'HEAD',
-                    mode: 'no-cors',
-                    signal: controller.signal
-                });
-
-                clearTimeout(timeoutId);
-
-                if (response.ok || response.type === 'opaque') {
-                    // Redirect if the site responds
-                    window.location.href = 'https://www.mybustimes.cc';
-                } else {
-                    // Redirect to down.html if the site doesn't respond properly
-                    window.location.href = 'down.html';
-                }
-            } catch (error) {
-                // Redirect to down.html on timeout or other errors
-                window.location.href = 'down.html';
-            }
+    <title>Maintenance | MyBusTimes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 50px;
         }
-
-        // Call the ping function when the page loads
-        window.onload = pingSite;
-    </script>
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #d9534f;
+        }
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #d9534f;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-    <h1></h1>
+    <div class="container">
+        <h1>We'll Be Right Back!</h1>
+        <p>MyBusTimes is currently undergoing maintenance. We appreciate your patience and will be back online shortly.</p>
+        <div class="loader"></div>
+        <p>Thank you for using MyBusTimes!</p>
+    </div>
 </body>
 </html>
