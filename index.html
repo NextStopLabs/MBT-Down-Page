@@ -1,84 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maintenance | MyBusTimes</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: linear-gradient(121deg, #8cb9d5 17%, transparent 17.05%),
-                        linear-gradient(-37deg, #c7ddeb 20%, transparent 20.05%),
-                        linear-gradient(23deg, #aecee1 46%, transparent 46.05%),
-                        linear-gradient(-187deg, #367296 49%, transparent 49.05%),
-                        linear-gradient(0deg, #5398c1 100%, transparent 100.05%);
-            color: #333;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-			overflow: hidden;
-			margin: 0px;
-        }
-		.container {
-            max-width: 650px;
-            margin: auto;
-            margin-top: 20vh;
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #0078a0;
-            font-size: 26px;
-        }
-        p {
-            font-size: 16px;
-            color: #333;
-            line-height: 1.5;
-            margin: 15px 0;
-        }
-        .loader {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #0078a0;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .links {
-            margin-top: 20px;
-        }
-        .links a {
-            text-decoration: none;
-            color: #0078a0;
-            font-weight: bold;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-        .links a:hover {
-            color: #005670;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maintenance | MyBusTimes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(121deg, #8cb9d5 17%, transparent 17.05%),
+                  linear-gradient(-37deg, #c7ddeb 20%, transparent 20.05%),
+                  linear-gradient(23deg, #aecee1 46%, transparent 46.05%),
+                  linear-gradient(-187deg, #367296 49%, transparent 49.05%),
+                  linear-gradient(0deg, #5398c1 100%, transparent 100.05%);
+      color: #333;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin: 0px;
+    }
+
+    .container {
+      max-width: 650px;
+      margin: auto;
+      margin-top: 20vh;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #0078a0;
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+      margin: 15px 0;
+    }
+
+    .loader {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #0078a0;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .checkmark {
+      width: 50px;
+      height: 50px;
+      margin: 20px auto;
+      display: none;
+    }
+
+    .checkmark svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .links {
+      margin-top: 20px;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: #0078a0;
+      font-weight: bold;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+
+    .links a:hover {
+      color: #005670;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🚧 We're undergoing maintenance 🚧</h1>
-        <div class="loader"></div>
-        <p>MyBusTimes is currently undergoing scheduled maintenance. We’ll be back shortly.</p>
-        <p>Thank you for your patience and understanding!</p>
-        <div class="links">
-            <p>Stay updated:</p>
-            <a href="https://status.mybustimes.cc">📢 Check our Status Page</a> |
-            <a href="https://discord.gg/mybustimes">💬 Join our Discord community</a>
-        </div>
+  <div class="container">
+    <h1 id="text">🚧 We're undergoing maintenance 🚧</h1>
+    <div class="loader" id="loader"></div>
+    <div class="checkmark" id="checkmark">
+      <svg viewBox="0 0 52 52">
+        <path fill="none" stroke="#28a745" stroke-width="6" d="M10 30 L22 42 L40 18"/>
+      </svg>
     </div>
+    <p>MyBusTimes is currently undergoing scheduled maintenance. We’ll be back shortly.</p>
+    <p>Thank you for your patience and understanding!</p>
+    <div class="links">
+      <p>Stay updated:</p>
+      <a href="https://status.mybustimes.cc">📢 Check our Status Page</a> |
+      <a href="https://discord.gg/mybustimes">💬 Join our Discord community</a>
+    </div>
+  </div>
+
+<script>
+  // Proxy URL (CORS Anywhere service in this case)
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const targetUrl = "https://mybustimes.cc/";
+
+  // Function to check the site
+  function checkSite() {
+    fetch(proxyUrl + targetUrl)
+      .then(response => {
+        // Log the status code if fetch is successful
+        console.log("Status Code:", response.status);
+
+        // Check if the site is reachable
+        if (response.ok || response.status == 301) {
+          console.log("Site is reachable.");
+
+          // Get the HTML content of the page
+          return response.text();
+        } else {
+          console.log("Site returned an error:", response.status);
+          throw new Error('Site returned an error');
+        }
+      })
+      .then(html => {
+        // Parse the HTML to get the title
+        const titleMatch = html.match(/<title>(.*?)<\/title>/);
+        if (titleMatch && titleMatch[1]) {
+          const pageTitle = titleMatch[1];
+          console.log("Page Title:", pageTitle);
+
+          if (pageTitle !== "Maintenance | MyBusTimes") {
+            // Hide the loader and show the checkmark if the page is not under maintenance
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("checkmark").style.display = "block";
+            document.getElementById("text").textContent = "We're Back";  // Optional: Add message to show
+          } else {
+            console.log("Site is under maintenance.");
+          }
+        } else {
+          console.log("Title not found on the page.");
+        }
+      })
+      .catch((error) => {
+        console.log("Error: Site is unreachable.", error);
+        // Optionally you can display a message for the user indicating the site is down
+      });
+  }
+
+  // Check the site immediately on page load
+  checkSite();
+
+  // Set an interval to check the site every 30 seconds (30000 milliseconds)
+  setInterval(checkSite, 10000);
+</script>
+
 </body>
 </html>
