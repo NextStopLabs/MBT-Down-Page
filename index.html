@@ -89,90 +89,74 @@
   </style>
 </head>
 <body>
-<div class="container">
-  <h1 id="text">MyBusTimes V1 – Temporary Outage</h1>
-  
-  <div class="loader" id="loader"></div>
-  <div class="checkmark" id="checkmark">
-    <svg viewBox="0 0 52 52">
-      <path fill="none" stroke="#28a745" stroke-width="6" d="M10 30 L22 42 L40 18"/>
-    </svg>
+  <div class="container">
+    <h1 id="text">MyBusTimes V1 – Temporary Outage</h1>
+    
+    <div class="loader" id="loader"></div>
+    <div class="checkmark" id="checkmark">
+      <svg viewBox="0 0 52 52">
+        <path fill="none" stroke="#28a745" stroke-width="6" d="M10 30 L22 42 L40 18"/>
+      </svg>
+    </div>
+    
+    <p>
+      We’re currently experiencing a server issue affecting <strong>MyBusTimes V1</strong>.
+      Our team is investigating and working to restore service as quickly as possible.
+    </p>
+    
+    <p>
+      Unfortunately, we don’t yet have an estimated time for when V1 will be back online,
+      but we’ll keep you updated as soon as we know more.
+    </p>
+    
+    <p>Thank you for your patience and understanding while we work on this.</p>
+    
+    <div class="links">
+      <p><strong>Stay informed:</strong></p>
+      <a href="https://www.mybustimes.cc/facebook/">Join our Facebook</a> |
+      <a href="https://www.mybustimes.cc/discord/">Join our Discord</a>
+    </div>
   </div>
-  
-  <p>
-    We’re currently experiencing a server issue affecting <strong>MyBusTimes V1</strong>.
-    Our team is investigating and working to restore service as quickly as possible.
-  </p>
-  
-  <p>
-    Unfortunately, we don’t yet have an estimated time for when V1 will be back online,
-    but we’ll keep you updated as soon as we know more.
-  </p>
-  
-  <p>Thank you for your patience and understanding while we work on this.</p>
-  
-  <div class="links">
-    <p><strong>Stay informed:</strong></p>
-    <a href="https://www.mybustimes.cc/facebook/">Join our Facebook</a> |
-    <a href="https://www.mybustimes.cc/discord/">Join our Discord</a>
-  </div>
-</div>
 
+  <script type="module">
+    import PocketBase from 'https://unpkg.com/pocketbase/dist/pocketbase.es.mjs';
 
-<script>
-  // Proxy URL (CORS Anywhere service in this case)
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-  const targetUrl = "https://mybustimes.cc/";
+    const pb = new PocketBase('http://5.196.80.43:8090');
 
-  // Function to check the site
-  function checkSite() {
-    fetch(proxyUrl + targetUrl)
-      .then(response => {
-        // Log the status code if fetch is successful
-        console.log("Status Code:", response.status);
+    async function checkServer() {
+      try {
+        const response = await fetch('https://getserverstatus.olivergboucher7.workers.dev');
+        const system = await response.json();
 
-        // Check if the site is reachable
-        if (response.ok || response.status == 301) {
-          console.log("Site is reachable.");
-
-          // Get the HTML content of the page
-          return response.text();
+        // Check status
+        if (system.status?.toLowerCase() === 'up') {
+          // Show checkmark, hide loader
+          document.getElementById('loader').style.display = 'none';
+          document.getElementById('checkmark').style.display = 'block';
+          document.getElementById('text').textContent = "MyBusTimes V1 – Online";
         } else {
-          console.log("Site returned an error:", response.status);
-          throw new Error('Site returned an error');
+          // Show loader, hide checkmark
+          document.getElementById('loader').style.display = 'block';
+          document.getElementById('checkmark').style.display = 'none';
+          document.getElementById('text').textContent = "MyBusTimes V1 – Temporary Outage";
         }
-      })
-      .then(html => {
-        // Parse the HTML to get the title
-        const titleMatch = html.match(/<title>(.*?)<\/title>/);
-        if (titleMatch && titleMatch[1]) {
-          const pageTitle = titleMatch[1];
-          console.log("Page Title:", pageTitle);
 
-          if (pageTitle !== "Maintenance | MyBusTimes") {
-            // Hide the loader and show the checkmark if the page is not under maintenance
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("checkmark").style.display = "block";
-            document.getElementById("text").textContent = "We're Back";  // Optional: Add message to show
-          } else {
-            console.log("Site is under maintenance.");
-          }
-        } else {
-          console.log("Title not found on the page.");
-        }
-      })
-      .catch((error) => {
-        console.log("Error: Site is unreachable.", error);
-        // Optionally you can display a message for the user indicating the site is down
-      });
-  }
+        // Logout (optional)
+        pb.authStore.clear();
+      } catch (err) {
+        console.error('Error checking server:', err);
+        // On error, show loader and outage message
+        document.getElementById('loader').style.display = 'block';
+        document.getElementById('checkmark').style.display = 'none';
+        document.getElementById('text').textContent = "MyBusTimes V1 – Temporary Outage";
+      }
+    }
 
-  // Check the site immediately on page load
-  checkSite();
+    // Run check immediately
+    checkServer();
 
-  // Set an interval to check the site every 30 seconds (30000 milliseconds)
-  setInterval(checkSite, 10000);
-</script>
-
+    // Check every 30 seconds
+    setInterval(checkServer, 30000);
+  </script>
 </body>
 </html>
